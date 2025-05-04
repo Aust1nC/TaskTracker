@@ -16,7 +16,7 @@ func ListTasks() *cobra.Command {
 
 func RunListTasksCmd(cmd *cobra.Command, args []string) error {
 	if len(args) > 0 {
-		status := model.TaskStatusFromString(args[0])
+		status := model.TaskStatusFromString(args[1])
 		return service.ListTasks(status)
 	}
 

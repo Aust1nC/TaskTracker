@@ -10,5 +10,9 @@ func NewRootCmd() *cobra.Command {
 
 	cmd.AddCommand(NewAddTask())
 	cmd.AddCommand(ListTasks())
+	cmd.AddCommand(UpdateTaskDescription())
+	cmd.AddCommand(UpdateTaskStatusToInProgress())
+	cmd.AddCommand(UpdateTaskStatusToCompleted())
+	cmd.AddCommand(DeleteTask())
 	return cmd
 }
