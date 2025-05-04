@@ -1,9 +1,14 @@
 package main
 
 import (
-	"github.com/Aust1nC/TaskTracker/service"
+	"fmt"
+
+	"github.com/Aust1nC/TaskTracker/cmd"
 )
 
 func main() {
-	service.ReadTasksFromFile()
+	rootCmd := cmd.NewRootCmd()
+	if err := rootCmd.Execute(); err != nil {
+		fmt.Println("Error:", err)
+	}
 }

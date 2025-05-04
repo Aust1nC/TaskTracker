@@ -55,3 +55,22 @@ func ReadTasksFromFile() ([]model.Task, error) {
 
 	return tasks, nil
 }
+
+func WriteTasksToFile(tasks []model.Task) error {
+	filePath := getFilePath()
+
+	file, err := os.Create(filePath)
+	if err != nil {
+		fmt.Println("Error creating the file:", err)
+		return err
+	}
+
+	defer file.Close()
+
+	if err := json.NewEncoder(file).Encode(&tasks); err != nil {
+		fmt.Println("Error encoding file:", err)
+		return nil
+	}
+
+	return nil
+}
